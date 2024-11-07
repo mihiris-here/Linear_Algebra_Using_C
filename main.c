@@ -82,7 +82,7 @@ Matrix* addMatrices(Matrix* matrix1, Matrix* matrix2) {
 }
 
 // Function to add two matrices
-Matrix* addMatrices(Matrix* matrix1, Matrix* matrix2) {
+Matrix* subtractMatrices(Matrix* matrix1, Matrix* matrix2) {
     // Check if matrices are NULL
     if (matrix1 == NULL || matrix2 == NULL) {
         return NULL;
@@ -102,7 +102,7 @@ Matrix* addMatrices(Matrix* matrix1, Matrix* matrix2) {
     // Add corresponding elements
     for (int i = 0; i < matrix1->rows; i++) {
         for (int j = 0; j < matrix1->cols; j++) {
-            result->data[i][j] = matrix1->data[i][j] + matrix2->data[i][j];
+            result->data[i][j] = matrix1->data[i][j] - matrix2->data[i][j];
         }
     }
     
@@ -110,6 +110,30 @@ Matrix* addMatrices(Matrix* matrix1, Matrix* matrix2) {
 }
 
 
+// Function to scalar multiply matrices
+Matrix* scalarMultiplyMatrix(Matrix* matrix1, int n) {
+    // Check if matrices are NULL
+    if (matrix1 == NULL || n == NULL) {
+        return NULL;
+    }
+    
+
+    
+    // Create result matrix
+    Matrix* result = createMatrix(matrix1->rows, matrix1->cols);
+    if (result == NULL) {
+        return NULL;
+    }
+    
+    // Add corresponding elements
+    for (int i = 0; i < matrix1->rows; i++) {
+        for (int j = 0; j < matrix1->cols; j++) {
+            result->data[i][j] = matrix1->data[i][j] * n;
+        }
+    }
+    
+    return result;
+}
 
 
 // Function to print a matrix
